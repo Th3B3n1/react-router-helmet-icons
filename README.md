@@ -1,26 +1,24 @@
 # React- Router, Helmet and Icons
-### Keep in mind that you can only use these in a React component
-
 ## React Router
 With React Router, you can load elements when a specific path is loaded. Examples include: redirecting a user, a user manually visiting the main page or a specific part of your site.
 #### Creating a router requires the following codes in main.tsx (or the place which is the root of the project):
-```
+```javascript
 const router = createBrowserRouter([
     {
-        path: -- example: /phones
-        loader: -- preload data: this is required to use params
-        element: -- React element to load when visiting this path
-        errorElement: -- React element in case of an error happens in the main element
+        path: // example: /phones
+        loader: // preload data: this is required to use params
+        element: // React element to load when visiting this path
+        errorElement: // React element in case of an error happens in the main element
     }
     /* other paths */
 ]);
 ```
-```
+```javascript
 /* inside createRoot() */
 <RouterProvider router={router} />
 ```
 #### A simple example of a path object in the ```createBrowserRouter()``` function:
-```
+```javascript
 {
     path: "/",
     element: <Index />,
@@ -28,19 +26,19 @@ const router = createBrowserRouter([
 }
 ```
 #### If you want to do the following:
-```
+```javascript
 {
-    path: "/phones/:id", -- only listing a specific phone based on id
+    path: "/phones/:id", // only listing a specific phone based on id
     element: <ListPhones />,
     errorElement: <ErrorPage />,
 }
 ```
 #### then you need the loader attribute:
-```
+```javascript
 {
     path: "/phones/:id",
-    loader: ({params}) => { -- a basic arrow function is passed with a fetch
-      return fetch("/phones.json") -- you have to return the data you loaded in order to use that data later
+    loader: ({params}) => { // a basic arrow function is passed with a fetch
+      return fetch("/phones.json") // you have to return the data you loaded in order to use that data later
         .then(response => response.json())
         .then(data => {return data.phones[(params.id) ? params.id : 0]});
     },
@@ -49,7 +47,7 @@ const router = createBrowserRouter([
 }
 ```
 #### The structure of the JSON I use (and example data in it):
-```
+```json
 {
     "phones": [
       {
@@ -67,7 +65,7 @@ const router = createBrowserRouter([
 }
 ```
 #### In the element you load, you can use the ```useLoaderData()``` function to get the data, the loader loaded in earlier:
-```
+```javascript
 /* Phone interface */
 
 export function ListPhones()
@@ -89,7 +87,7 @@ export function ListPhones()
 ## React Helmet
 You can use React Helmet to change the tags inside the Head tag basically anywhere.
 #### Changing the title and a link in a component:
-```
+```javascript
 export function Index()
 {
     return (
@@ -105,7 +103,7 @@ export function Index()
 ## React Icons
 Adding an icon to an element is easy.
 #### Example code:
-```
+```javascript
 import { FaMobile } from 'react-icons/fa';
 
 export function ExampleComponent()
