@@ -1,7 +1,7 @@
 # React- Router, Helmet and Icons
 ## React Router
 With React Router, you can load elements when a specific path is loaded. Examples include: redirecting a user, a user manually visiting the main page or a specific part of your site.
-#### Creating a router requires the following codes in main.tsx (or the place which is the root of the project):
+#### Creating a router requires the following codes in ```main.tsx``` (or the place which is the root of the project):
 ```javascript
 const router = createBrowserRouter([
     {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
 ```
 ```javascript
 /* inside createRoot() */
-<RouterProvider router={router} />
+    <RouterProvider router={router} />
 ```
 #### A simple example of a path object in the ```createBrowserRouter()``` function:
 ```javascript
