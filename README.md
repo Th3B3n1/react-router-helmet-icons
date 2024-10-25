@@ -46,6 +46,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
 }
 ```
+#### or you can use the ```useParams()``` function and fetch inside the component.
 #### The structure of the JSON I use (and example data in it):
 ```json
 {
@@ -81,6 +82,30 @@ export function ListPhones()
             <p>phone.features.battery</p>
         </div>
     )
+}
+```
+#### With ```useParams()```:
+```javascript
+interface Params
+{
+    id: number
+}
+export function ListPhones()
+{
+    /* fetching the json into a phones variable */
+    const params = useParams() as Params
+    {phones.splice(params.id, params.id).map((phone, index) => {
+        return (
+            <div key={index}>
+                <p>phone.brand</p>
+                <p>phone.model</p>
+                <p>phone.price</p>
+                <p>phone.features.storage</p>
+                <p>phone.features.camera</p>
+                <p>phone.features.battery</p>
+            </div>
+        )
+    }))
 }
 ```
 
