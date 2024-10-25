@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
 }
 ```
-#### then you need the loader attribute:
+#### then you need the ```loader``` attribute:
 ```javascript
 {
     path: "/phones/:id",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
     ]
 }
 ```
-#### In the element you load, you can use the ```useLoaderData()``` function to get the data, the loader loaded in earlier:
+#### In the element you load, you can use the ```useLoaderData()``` function to get the data, the ```loader``` loaded in earlier:
 ```javascript
 /* Phone interface */
 
@@ -105,7 +105,7 @@ export function ListPhones()
                 <p>phone.features.battery</p>
             </div>
         )
-    }))
+    })}
 }
 ```
 
